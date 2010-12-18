@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="estesi">
+</Property><Property Name="Archivo de la solución" Value="C:\Users\Cinta\Desktop\Proyectos VC\estesi\estesi.sln">
+</Property><Property Name="Archivo de opciones de usuario" Value="C:\Users\Cinta\Desktop\Proyectos VC\estesi\estesi.suo">
+</Property><Property Name="Date" Value="sábado, 11 de diciembre de 2010">
+</Property><Property Name="Time" Value="11:11">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="estesi.sln" Description="La copia C:\Users\Cinta\Desktop\Proyectos VC\estesi\estesi.sln.old del archivo se ha realizado correctamente">
+</Event><Event ErrorLevel="0" Project="" Source="estesi.suo" Description="La copia C:\Users\Cinta\Desktop\Proyectos VC\estesi\estesi.suo.old del archivo se ha realizado correctamente">
+</Event><Event ErrorLevel="0" Project="estesi" Source="estesi.vcproj" Description="Converting project file 'C:\Users\Cinta\Desktop\Proyectos VC\estesi\estesi.vcproj'.">
+</Event><Event ErrorLevel="1" Project="estesi" Source="estesi.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="estesi" Source="estesi.vcproj" Description="MSB8012: $(TargetPath) ('C:\Users\Cinta\Desktop\Proyectos VC\estesi\.\Release\estesi.exe') does not match the Linker's OutputFile property value '.\Release/estesi.exe' ('C:\Users\Cinta\Desktop\Proyectos VC\estesi\Release/estesi.exe') in project configuration 'Release|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="1" Project="estesi" Source="estesi.vcproj" Description="MSB8012: $(TargetPath) ('C:\Users\Cinta\Desktop\Proyectos VC\estesi\.\Debug\estesi.exe') does not match the Linker's OutputFile property value '.\Debug/estesi.exe' ('C:\Users\Cinta\Desktop\Proyectos VC\estesi\Debug/estesi.exe') in project configuration 'Debug|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="0" Project="estesi" Source="estesi.vcproj" Description="Done converting to new project file 'C:\Users\Cinta\Desktop\Proyectos VC\estesi\estesi.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="estesi" Source="estesi.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="estesi.sln" Description="La solución se convirtió correctamente">
+</Event><Event ErrorLevel="3" Project="" Source="estesi.sln" Description="Converted">
+</Event></UpgradeLog>

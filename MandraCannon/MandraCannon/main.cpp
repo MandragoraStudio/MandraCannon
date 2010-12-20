@@ -8,6 +8,7 @@
 #include "SDL_image.h"
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
+#include "SDL_rotozoom.h"
 
 
 
@@ -27,8 +28,8 @@ int main(int argc, char* argv[])
 	printf("Se carga la imagen\n");
 	image = IMG_Load("pra.png");
 
-	dest.x = 0;
-	dest.y = 0;
+	dest.x = 200;
+	dest.y = 200;
 	dest.w = image->w;
 	dest.h = image->h;
 
@@ -38,6 +39,9 @@ int main(int argc, char* argv[])
 	rrot.y = 0;
 	rrot.w = rot->w;
 	rrot.h = rot->h;
+
+	image = rotozoomSurface(image, 45, 2.5,  0);
+
 
 	SDL_BlitSurface(rot, NULL, screen, &rrot);
 	SDL_BlitSurface(image, NULL, screen, &dest);

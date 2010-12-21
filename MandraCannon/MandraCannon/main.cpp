@@ -9,6 +9,7 @@
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
 #include "SDL_rotozoom.h"
+#include "SSM.h"
 
 
 
@@ -18,29 +19,33 @@ int main(int argc, char* argv[])
 	SDL_Rect dest, rrot;
 	SDL_Event event;
 	int done = 0;
+	SSM pantalla;
 
 	atexit(SDL_Quit);
 
 	SDL_Init(SDL_INIT_VIDEO);
 
-	screen = SDL_SetVideoMode(640,480,24,SDL_HWSURFACE);
+	pantalla.disabledFullScreen();
+	pantalla.setResolution(PANORAMICSMALL);
+	pantalla.setWindowsTitle("Amono señoresss");
+	screen = pantalla.getSurface();
 
 	printf("Se carga la imagen\n");
-	image = IMG_Load("pra.png");
+	image = IMG_Load("recursos/pruebas/pra.png");
 
 	dest.x = 200;
 	dest.y = 200;
 	dest.w = image->w;
 	dest.h = image->h;
 
-	rot = IMG_Load("rot.png");
+	rot = IMG_Load("recursos/pruebas/rot.png");
 
 	rrot.x = 0;
 	rrot.y = 0;
 	rrot.w = rot->w;
 	rrot.h = rot->h;
 
-	image = rotozoomSurface(image, 45, 2.5,  0);
+	image = rotozoomSurface(image, 45, 2.5,  1);
 
 
 	SDL_BlitSurface(rot, NULL, screen, &rrot);

@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Archivos de código fuente\Main">
+      <UniqueIdentifier>{de2791b1-7c84-43c6-b484-d6cfce2a0e27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\RotoZoom">
+      <UniqueIdentifier>{fbbfd0ff-bfa7-4fe6-9f21-fcf38e7740f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\SDLPLUS">
+      <UniqueIdentifier>{1f83a5fb-841c-493a-877c-4996b6e1374f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -24,16 +33,22 @@
     <ClInclude Include="targetver.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="SSM.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Archivos de código fuente</Filter>
+      <Filter>Archivos de código fuente\Main</Filter>
     </ClCompile>
     <ClCompile Include="librerias.cpp">
-      <Filter>Archivos de código fuente</Filter>
+      <Filter>Archivos de código fuente\Main</Filter>
     </ClCompile>
     <ClCompile Include="SDL_rotozoom.c">
-      <Filter>Archivos de código fuente</Filter>
+      <Filter>Archivos de código fuente\RotoZoom</Filter>
+    </ClCompile>
+    <ClCompile Include="SSM.cpp">
+      <Filter>Archivos de código fuente\SDLPLUS</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

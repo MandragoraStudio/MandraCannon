@@ -23,6 +23,7 @@ int main(int argc, char* argv[])
 	atexit(SDL_Quit);
 
 	SDL_Init(SDL_INIT_VIDEO);
+	//SDL_ShowCursor(SDL_DISABLE);
 
 	pantalla.disabledFullScreen();
 	pantalla.setResolution(PANORAMICSMALL);

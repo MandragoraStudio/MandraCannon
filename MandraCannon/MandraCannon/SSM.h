@@ -19,6 +19,7 @@
 
 class SSM
 {
+protected:
 	bool fullScreen;	// ¿Pantalla completa?
 	int WIDTH;			// Ancho pantalla
 	int HEIGHT;			// Alto pantalla
@@ -26,7 +27,6 @@ class SSM
 	double percent;		// Este valor sirve para escalar las imagenes
 public:
 	SSM(void);			// Constructor
-	~SSM(void);			// Deconstructor
 	SDL_Surface *getSurface();	// Devuelve la superficie de la pantalla actualizandola
 	double getPercent();		// Devuelve el porcentaje de escalado de las imagenes
 	int getWIDTH();				// Devuelve el ancho
@@ -34,7 +34,7 @@ public:
 	bool getFullScreen();		// Devuelve si la pantalla esta o no en pantalla completa
 	void enabledFullScreen();	// Activa pantalla completa
 	void disabledFullScreen();	// Desactiva pantalla completa
-	void setResolution(int resolution);	// Cambia la resolucion, hay distintas opciones definidas
+	int setResolution(int resolution);	// Cambia la resolucion, hay distintas opciones definidas
 	void setWindowsTitle(const char title[]);	// Establece el titulo de la ventana
 	void setIcon(const char folder[]);			// Establece el icono de la ventana
 };

@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "SSM.h"
 #include <stdio.h>
-#include <stdlib.h>
 #include <SDL.h>
 #include "SDL_image.h"
 
@@ -13,8 +12,6 @@ SSM::SSM(void){
 	percent = 1;
 	screen = SDL_SetVideoMode(WIDTH,HEIGHT,24,SDL_HWSURFACE);
 }
-
-SSM::~SSM(void){}
 
 SDL_Surface *SSM::getSurface(){
 	if (fullScreen == true){
@@ -52,7 +49,7 @@ void SSM::disabledFullScreen(){
 // Esta funcion cambia el alto y ancho de la pantalla segun el tamañano seleccionad
 // Tambien calcula el porcentaje de escalado respecto a las resoluciones
 // 1600x900 (16:9) o 1600x1200 (4:3), segun la resolucion elegida.
-void SSM::setResolution(int resolution){
+int SSM::setResolution(int resolution){
 	switch (resolution){
 		// Panoramico
 	case PANORAMICMAX:
@@ -104,12 +101,15 @@ void SSM::setResolution(int resolution){
 		WIDTH = 800;
 		HEIGHT = 600;
 		break;
+	default:
+		return -1;
 	}
 	// El ancho (que es comun al panoramico y normal) nos sirve para calcular el porcentaje de escalado
 	// dividiendolo entre 1600 (por lo que la resolucion maxima tendra 1600 pixeles de ancho, es decir
 	// porcentaje de escalado 1, por lo que hay que diseñar las imagenes para la maxima resolucion
 	// (panoramico o normal) y en caso de elegir una resolucion menor el juego se encarga de reducirlas)
-	percent = WIDTH%16%100;
+	percent = (double)WIDTH/16/100;	// Para no perder informacion WIDTH se pasa a double explicitamente
+	return 0;
 }
 
 void SSM::setWindowsTitle(const char title[]){

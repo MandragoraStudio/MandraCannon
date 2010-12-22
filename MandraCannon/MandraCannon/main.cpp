@@ -1,5 +1,4 @@
 // MandraCannon.cpp: define el punto de entrada de la aplicación de consola.
-//
 
 #include "stdafx.h"
 #include <stdio.h>
@@ -30,8 +29,8 @@ int main(int argc, char* argv[])
 	pantalla.setWindowsTitle("Amono señoresss");
 	pantalla.setIcon("recursos/logoventana/logoventana.png");
 	screen = pantalla.getSurface();
-
-	printf("Se carga la imagen\n");
+	
+	printf("%f", pantalla.getPercent());
 	image = IMG_Load("recursos/pruebas/pra.png");
 
 	dest.x = 200;

@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
 	rrot.w = rot->w;
 	rrot.h = rot->h;
 
-	image = rotozoomSurface(image, 45, 2.5,  1);
+	image = rotozoomSurface(image, 115, 4.5,  1);
 
 
 	SDL_BlitSurface(rot, NULL, screen, &rrot);

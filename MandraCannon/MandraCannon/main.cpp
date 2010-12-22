@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
 	SDL_Init(SDL_INIT_VIDEO);
 	//SDL_ShowCursor(SDL_DISABLE);
 
-	pantalla.disabledFullScreen();
+	pantalla.enabledFullScreen();
 	pantalla.setResolution(PANORAMICSMALL);
 	pantalla.setWindowsTitle("Amono señoresss");
 	pantalla.setIcon("recursos/logoventana/logoventana.png");

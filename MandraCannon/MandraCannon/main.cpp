@@ -10,7 +10,7 @@
 #include "SDL_rotozoom.h"
 #include "SSM.h"
 
-
+//probando cambios como comentario
 
 int main(int argc, char* argv[])
 {

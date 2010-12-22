@@ -35,6 +35,6 @@ public:
 	void enabledFullScreen();	// Activa pantalla completa
 	void disabledFullScreen();	// Desactiva pantalla completa
 	void setResolution(int resolution);	// Cambia la resolucion, hay distintas opciones definidas
-	void setWindowsTitle(const char title[]);
+	void setWindowsTitle(const char title[]);	// Establece el titulo de la ventana
+	void setIcon(const char folder[]);			// Establece el icono de la ventana
 };
-

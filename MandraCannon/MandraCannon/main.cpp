@@ -28,6 +28,7 @@ int main(int argc, char* argv[])
 	pantalla.disabledFullScreen();
 	pantalla.setResolution(PANORAMICSMALL);
 	pantalla.setWindowsTitle("Amono señoresss");
+	pantalla.setIcon("recursos/logoventana/logoventana.png");
 	screen = pantalla.getSurface();
 
 	printf("Se carga la imagen\n");

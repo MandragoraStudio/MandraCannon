@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <SDL.h>
 #include "SDL_image.h"
-#include "SDL_rotozoom.h"
 
 SSM::SSM(void){
 	// Se inicializan los atributos y se crea una ventana predeterminada
@@ -115,6 +114,10 @@ void SSM::setResolution(int resolution){
 
 void SSM::setWindowsTitle(const char title[]){
 	SDL_WM_SetCaption(title, NULL);
+}
+
+void SSM::setIcon(const char folder[]){
+	SDL_WM_SetIcon(IMG_Load(folder),NULL);
 }
 
 

@@ -44,7 +44,7 @@ int main(int argc, char* argv[])
 	imagen.loadImage("recursos/pruebas/pra.png");
 	imagen.setX(300);
 	imagen.escalate(1.5);
-	imagen.rotate(135.5);
+	imagen.rotate(195.5);
 
 	rot = IMG_Load("recursos/pruebas/rot.png");
 
@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
 
 
 	SDL_BlitSurface(rot, NULL, screen, &rrot);
-	imagen.blitSurface(pantalla.getSurface());
+	imagen.blitSurface(screen);
 	SDL_Flip(screen);
 
 	//SDL_FreeSurface(image);

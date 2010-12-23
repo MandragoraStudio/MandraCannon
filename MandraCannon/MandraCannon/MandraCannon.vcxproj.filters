@@ -36,6 +36,9 @@
     <ClInclude Include="SSM.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="ImageManager.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -48,6 +51,9 @@
       <Filter>Archivos de código fuente\RotoZoom</Filter>
     </ClCompile>
     <ClCompile Include="SSM.cpp">
+      <Filter>Archivos de código fuente\SDLPLUS</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageManager.cpp">
       <Filter>Archivos de código fuente\SDLPLUS</Filter>
     </ClCompile>
   </ItemGroup>

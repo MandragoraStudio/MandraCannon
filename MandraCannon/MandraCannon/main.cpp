@@ -13,7 +13,83 @@
 #include "SpriteManager.h"
 #include "SurfaceManager.h"
 
-int main(int argc, char* argv[])
+int main (int argc, char* argv[])
+{
+	atexit(SDL_Quit);
+	SDL_Init(SDL_INIT_VIDEO);
+
+	SSM main_screen(800, 600, 1280, 800);
+
+
+	SpriteManager spri(2,3);
+	spri.loadImage("recursos/pruebas/verde.jpg");
+	spri.setInstance(4);
+	spri.setTransparency(255,255,255);
+	spri.setAlpha(100);
+	spri.setX(100);
+	spri.blitSurface(main_screen.getSurface());
+
+
+	main_screen.flip();
+
+	SDL_Event event;
+	int done = 0;
+	Uint8 *keys;
+
+	while(done==0){
+		while (SDL_PollEvent(&event)){
+			if (event.type == SDL_KEYDOWN){
+				if (event.key.keysym.sym == SDLK_ESCAPE){
+					done = 1;
+				}
+			}else if (event.type == SDL_VIDEORESIZE){
+				main_screen.setResolution(event.resize.w,event.resize.h);
+			}else if (event.type == SDL_QUIT){
+				done = 1;
+			}
+		}
+
+		keys=SDL_GetKeyState(NULL);
+
+		if (keys[SDLK_a] == 1){
+			spri.setX(spri.getX()-5);
+			if (keys[SDLK_s] == 1){
+				spri.setY(spri.getY()+5);
+			}else if (keys[SDLK_w] == 1){
+				spri.setY(spri.getY()-5);
+			}else if (keys[SDLK_d] == 1){
+				spri.setX(spri.getX()+5);
+			}
+
+		
+		}else if (keys[SDLK_s] == 1){
+			spri.setY(spri.getY()+5);
+			if (keys[SDLK_p] == 1){
+				spri.setX(spri.getX()+5);
+			}
+			
+		}else if (keys[SDLK_d] == 1){
+			spri.setX(spri.getX()+5);
+			if (keys[SDLK_l] == 1){
+				spri.setY(spri.getY()+5);
+			}
+		
+		}else if (keys[SDLK_w] == 1){
+			spri.setY(spri.getY()-5);
+			if (keys[SDLK_p] == 1){
+				spri.setX(spri.getX()+5);
+			}
+			
+		}
+		main_screen.fillScreen(0,0,1);
+		spri.blitSurface(main_screen.getSurface());		
+		main_screen.flip();
+
+	}
+	return 1;
+}
+
+/*int main(int argc, char* argv[])
 {
 	SDL_Event event;
 	int done = 0;
@@ -80,7 +156,7 @@ int main(int argc, char* argv[])
 	
 
 	pantalla.fillScreen(120,45,211);
-	misuperficie.fillSurface(45,134,67);
+	misuperficie.fillSurface(245,0,0);
 	
 	misuperficie.setAlpha(120);
 
@@ -123,4 +199,4 @@ int main(int argc, char* argv[])
 		}
 	}
 	return 1;
-}
+}*/

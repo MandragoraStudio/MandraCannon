@@ -105,7 +105,7 @@ double SSM::getPercent(){
 }
 
 int SSM::fillScreen(int R, int G, int B){
-	if (R < 0 | G < 0 | B < 0 | R > 255 | G > 255 | B > 255){
+	if (R < 0 || G < 0 || B < 0 || R > 255 || G > 255 || B > 255){
 		return -1;
 	}else{
 		SDL_Rect fill;
@@ -113,7 +113,7 @@ int SSM::fillScreen(int R, int G, int B){
 		fill.y = 0;
 		fill.w = MAXWIDTH;
 		fill.h = MAXHEIGHT;
-		SDL_FillRect(notEscalate,&fill,(notEscalate->format,R,G,B));
+		SDL_FillRect(notEscalate,&fill,SDL_MapRGB(notEscalate->format,R,G,B));
 	}
 	return 0;
 }

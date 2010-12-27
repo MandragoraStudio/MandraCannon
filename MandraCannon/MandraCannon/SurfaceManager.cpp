@@ -15,7 +15,7 @@ SurfaceManager::SurfaceManager(int WIDTH, int HEIGHT)
 	imageRect.y = 0;
 	imageRect.w = WIDTH;
 	imageRect.h = HEIGHT;
-	image = SDL_CreateRGBSurface(SDL_HWSURFACE|SDL_SRCCOLORKEY|SDL_SRCALPHA,WIDTH,HEIGHT,32,0,0,0,255);
+	image = SDL_CreateRGBSurface(SDL_HWSURFACE|SDL_SRCCOLORKEY|SDL_SRCALPHA,WIDTH,HEIGHT,32,0,0,0,0);
 }
 
 
@@ -95,7 +95,7 @@ int SurfaceManager::fillSurface(int R, int G, int B){
 		fill.y = 0;
 		fill.w = imageRect.w;
 		fill.h = imageRect.h;
-		SDL_FillRect(image,&fill,(image->format,R,G,B));
+		SDL_FillRect(image,&fill,SDL_MapRGB(image->format,R,G,B));
 	}
 	return 0;
 }

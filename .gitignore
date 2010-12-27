@@ -6,3 +6,7 @@ dist
 build.xml
 manifest.mf
 src.rar
+Debug
+ipch
+MandraCannon.sln
+MandraCannon.sdf

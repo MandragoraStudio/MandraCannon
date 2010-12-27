@@ -80,9 +80,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImageManager.h" />
+    <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="SSM.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="SurfaceManager.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TextManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImageManager.cpp" />
@@ -96,7 +99,10 @@
       <OmitDefaultLibName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</OmitDefaultLibName>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="SSM.cpp" />
+    <ClCompile Include="SurfaceManager.cpp" />
+    <ClCompile Include="TextManager.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

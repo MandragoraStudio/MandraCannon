@@ -10,3 +10,8 @@ Debug
 ipch
 MandraCannon.sln
 MandraCannon.sdf
+MandraCannon.suo
+MandraCannon.vcxproj.filters
+MandraCannon.vcxproj
+MandraCannon.vcxproj.user
+MandraCannon/Debug

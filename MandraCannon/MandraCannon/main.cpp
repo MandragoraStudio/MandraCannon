@@ -13,6 +13,7 @@
 #include "SpriteManager.h"
 #include "SurfaceManager.h"
 
+<<<<<<< HEAD
 int main (int argc, char* argv[])
 {
 	atexit(SDL_Quit);
@@ -90,9 +91,13 @@ int main (int argc, char* argv[])
 }
 
 /*int main(int argc, char* argv[])
+=======
+int main(int argc, char* argv[])
+>>>>>>> origin/master
 {
 	SDL_Event event;
 	int done = 0;
+<<<<<<< HEAD
 	ImageManager imagen;
 	ImageManager robot;
 	SpriteManager sprite(2,3);
@@ -101,15 +106,27 @@ int main (int argc, char* argv[])
 	ImageManager boton1;
 	ImageManager boton2;
 	SpriteManager caca(1,1);
+=======
+	int i = 1;
+	SSM pantalla;
+	Uint8 *keys;
+>>>>>>> origin/master
 
 	atexit(SDL_Quit);
 
 	SDL_Init(SDL_INIT_VIDEO);
 	//SDL_ShowCursor(SDL_DISABLE);
 
+<<<<<<< HEAD
 	pantalla.setWindowsTitle("Amono señoresss");
+=======
+	//pantalla.enabledFullScreen();
+	pantalla.setResolution(PANORAMICSMALL);
+	pantalla.setWindowsTitle("MandraCannon");
+>>>>>>> origin/master
 	pantalla.setIcon("recursos/logoventana/logoventana.png");
 	
+<<<<<<< HEAD
 	
 	printf("%d\n", pantalla.getWIDTHborder());
 	printf("%d\n", pantalla.getHEIGHTborder());
@@ -186,10 +203,49 @@ int main (int argc, char* argv[])
 	imagen.~ImageManager();
 	sprite.~SpriteManager();
 	robot.~ImageManager();
+=======
+	printf("%f", pantalla.getPercent());
+	
+	image = IMG_Load("recursos/pruebas/pra.png");
+
+	dest.x = 100;
+	dest.y = 200;
+	dest.w = image->w;
+	dest.h = image->h;
+	
+	rot = IMG_Load("recursos/pruebas/rot.png");
+
+	rrot.x = 10;
+	rrot.y = 10;
+	rrot.w = rot->w;
+	rrot.h = rot->h;
+
+	image = rotozoomSurface(image, 135, 3.2, 1);
+	
+	SDL_BlitSurface(rot, NULL, screen, &rrot);
+	SDL_BlitSurface(image, NULL, screen, &dest);
+	
+	SDL_Flip(screen);
+
+	keys=SDL_GetKeyState(NULL);
+	
+	if(keys[SDLK_w] == 1){
+		rrot.y=rrot.y-(5);
+	}
+	if(keys[SDLK_s] == 1){
+		rrot.y=rrot.y+(5);
+	}
+	if(keys[SDLK_d] == 1){
+		rrot.x=rrot.x+(5);
+	}
+	if(keys[SDLK_a] == 1){
+		rrot.x=rrot.x-(5);
+	}
+>>>>>>> origin/master
 
 	while(done==0){
 		while (SDL_PollEvent(&event)){
-			if (event.type == SDL_KEYDOWN){
+			if (keys[SDLK_ESCAPE] == 1){
 				done = 1;
 			} else if (event.type == SDL_VIDEORESIZE){
 				pantalla.setResolution(event.resize.w, event.resize.h);
@@ -198,5 +254,14 @@ int main (int argc, char* argv[])
 			}
 		}
 	}
+<<<<<<< HEAD
 	return 1;
 }*/
+=======
+
+	SDL_FreeSurface(image);
+	SDL_FreeSurface(rot);
+	
+	return 0;
+}
+>>>>>>> origin/master

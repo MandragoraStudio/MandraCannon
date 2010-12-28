@@ -6,13 +6,13 @@ Created by: Juan Manuel Amador Olivares
 
 #include "StdAfx.h"
 #include "ImageManager.h"
-#include <SDL.h>
 #include "SDL_image.h"
 #include "SDL_rotozoom.h"
 
 int ImageManager::imageNumber = 0;		// Se inicia la variable de clase que guarda el numero de imagenes
 
 /*** Construtor ***/
+// Inicializa las variables
 ImageManager::ImageManager(void)
 {
 	imageNumber++;		// Cada vez que se crea un objeto se incrementa una unidad el numero de imagenes
@@ -29,6 +29,7 @@ ImageManager::ImageManager(void)
 }
 
 /*** Deconstructor ***/
+// Destruye la memoria del objeto
 ImageManager::~ImageManager(void)
 {
 	imageNumber--;		// Cuando el objeto se destruye se decrementa una unidad
@@ -43,13 +44,13 @@ int ImageManager::getNumberImages(){
 
 /*** loadImage ***/
 // Esta funcion carga una imagen, preparandola para ser utilizada
-// La superficie "auxiliar" se utiliza como contenedor de la imagen original
+// La superficie auxiliar se utiliza como contenedor de la imagen original
 // Esta superficie no se rotara ni se escalara, sino que se usara como base
 // para escalarla y rotarla mediante la funcion "rotozoomSurface" de SDL_gfx
 // y la superficie image sera la que guarde la superficie devuelta por esta funcion.
 int ImageManager::loadImage(const char path[]){
 	// Se carga la imagen
-	if ((image = IMG_Load(path)) == NULL){	// Si no se puede cargar
+	if ((image = IMG_Load(path)) == NULL){		// Si no se puede cargar
 		return -1;								// sale y devuelve -1
 	} else{										// sino
 		imageRect.w = image->w;					// se guardan los atributos

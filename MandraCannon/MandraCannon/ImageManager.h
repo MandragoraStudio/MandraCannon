@@ -37,9 +37,9 @@ public:
 	double getRotation();										// Devuelve la rotacion
 	double getEscale();											// Devuelve el escalado (de 0 a 1)
 	void rotate(double rotation);								// Rota la imagen
-	void rotateCentre(double rotation);							// Rota la imagen respecto al centro
+	void rotateCentre(double rotation);							// Rota la imagen respecto a su centro
 	void escalate(double escale);								// Escala la imagen (porcentaje de 0 a 1)
-	void escalateCentre(double escale);							// Escala la imagen (porcentaje de 0 a 1) respecto al centro
+	void escalateCentre(double escale);							// Escala la imagen (porcentaje de 0 a 1) respecto a su centro
 	int setColorKey(int R, int G, int B);						// Selecciona un color para la transparencia
 	void disabledColorKey();									// Desactiva el color seleccionado como transparente
 	int setOpacity(int opacity);								// Cambia la opacidad la imagen

@@ -13,17 +13,18 @@ class SpriteManager :
 protected:
 	int nrows;										// Numero de columnas del sprite
 	int ncolumns;									// Numero de filas del sprite
-	int actualInstance;								// Guarda la imagen del sprite que se va a mostrar
-	SDL_Surface **notEscalate;
+	int actualInstance;								// Guarda la imagen de la instancia que se va a mostrar
+	SDL_Surface **notEscalate;						// Puntero que apunta a un array de superficies que contiene las inastancias
+
 public:
-	SpriteManager(int numberRows,int numberColumns);
-	~SpriteManager(void);
-	int loadImage(const char folder[]);
-	int setInstance(int instanceNumber);	// Selecciona la instancia del sprite
-	int getInstance();	// Devuelve la instancia en la que esta el sprite
-	void rotate(double rotation);
-	void rotateCentre(double rotation);	// Rota la imagen respecto al centro
-	void escalate(double escale);
-	void escalateCentre(double escale);		// Escala la imagen (porcentaje de 0 a 1) respecto al centro
+	SpriteManager(int numberRows,int numberColumns);// Construtor
+	~SpriteManager(void);							// Deconstructor
+	int loadImage(const char folder[]);				// Carga un sprite y la divide en sus instancias
+	int setInstance(int instanceNumber);			// Selecciona la instancia del sprite que sera mostrada
+	int getInstance();								// Devuelve la instancia actual que sera mostrada dek sprite
+	void rotate(double rotation);					// Rota las instancias del sprite
+	void rotateCentre(double rotation);				// Rota las instancias del sprite respecto a su centro
+	void escalate(double escale);					// Escala las instancias del sprite (porcentaje de 0 a 1)
+	void escalateCentre(double escale);				// Escala las instancias del sprite (porcentaje de 0 a 1) respecto a su centro
 };
 

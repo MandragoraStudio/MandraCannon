@@ -20,13 +20,15 @@ int main (int argc, char* argv[])
 	SDL_Init(SDL_INIT_VIDEO);
 
 	SSM main_screen(800, 600, 1280, 800);
+	main_screen.fillScreen(255,0,0);
 
 
 	SpriteManager spri(2,3);
 	spri.loadImage("recursos/pruebas/verde.jpg");
 	spri.setInstance(4);
-	spri.setTransparency(255,255,255);
-	spri.setAlpha(100);
+	spri.setColorKey(255,255,255);
+	spri.setOpacity(100);
+	spri.rotate(34);
 	spri.setX(100);
 	spri.blitSurface(main_screen.getSurface());
 
@@ -50,7 +52,7 @@ int main (int argc, char* argv[])
 			}
 		}
 
-		keys=SDL_GetKeyState(NULL);
+		/*keys=SDL_GetKeyState(NULL);
 
 		if (keys[SDLK_a] == 1){
 			spri.setX(spri.getX()-5);
@@ -84,7 +86,7 @@ int main (int argc, char* argv[])
 		}
 		main_screen.fillScreen(0,0,1);
 		spri.blitSurface(main_screen.getSurface());		
-		main_screen.flip();
+		main_screen.flip();*/
 
 	}
 	return 1;

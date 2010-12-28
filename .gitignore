@@ -15,3 +15,11 @@ MandraCannon/MandraCannon/MandraCannon.vcxproj.filters
 MandraCannon/MandraCannon/MandraCannon.vcxproj
 MandraCannon/MandraCannon/MandraCannon.vcxproj.user
 MandraCannon/MandraCannon/Debug
+/MandraCannon/Debug/MandraCannon.exe
+/MandraCannon/Debug/MandraCannon.ilk
+/MandraCannon/Debug/MandraCannon.pdb
+/MandraCannon/MandraCannon.sdf
+/MandraCannon/MandraCannon.suo
+/MandraCannon/MandraCannon/Debug/vc100.idb
+/MandraCannon/MandraCannon/Debug/vc100.pdb
+/MandraCannon/ipch/mandracannon-a235813a/mandracannon-8336ac9c.ipch

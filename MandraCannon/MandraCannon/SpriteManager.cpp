@@ -21,7 +21,7 @@ SpriteManager::SpriteManager(int numberRows,int numberColumns)
 	nrows = numberRows;
 	ncolumns = numberColumns;
 	actualInstance = 1;
-	notEscalate = new SDL_Surface*[numberInstances];
+	auxiliar = new SDL_Surface*[numberInstances];
 }
 
 
@@ -48,7 +48,7 @@ int SpriteManager::loadImage(const char folder[]){
 
 	// Se crean las superficies necesarias para las instancias del sprite
 	for (int i = 0; i<numberInstances; i++){
-		notEscalate[i] = SDL_CreateRGBSurface(SDL_HWSURFACE|SDL_SRCCOLORKEY|SDL_SRCALPHA,
+		auxiliar[i] = SDL_CreateRGBSurface(SDL_HWSURFACE|SDL_SRCCOLORKEY|SDL_SRCALPHA,
 			imageRect.w,imageRect.h,32,0,0,0,255);
 	}
 
@@ -60,13 +60,13 @@ int SpriteManager::loadImage(const char folder[]){
 		for (int j = 0; j<ncolumns; j++){
 			copyRect.x = j*copyRect.w;
 			copyRect.y = i*copyRect.h;
-			SDL_BlitSurface(image,&copyRect,notEscalate[i*ncolumns + j],&imageRect);
+			SDL_BlitSurface(image,&copyRect,auxiliar[i*ncolumns + j],&imageRect);
 		}
 	}
 
 	// La imagen que se va a mostrar es la que esta en la superficie image, por lo que copiamos la superficie
 	// de la instancia que se va a mostrar en esta superficie
-	image = notEscalate[actualInstance-1];
+	image = auxiliar[actualInstance-1];
 	}
 	return 0;		// Si todo va bien devuelve 0
 }
@@ -78,7 +78,7 @@ int SpriteManager::setInstance(int instanceNumber){
 		return -1;													// no sea menor que 1 o mayor que el numero de instancias
 	} else{
 		actualInstance = instanceNumber;							
-		image = notEscalate[actualInstance-1];						// Se actualiza image
+		image = auxiliar[actualInstance-1];						// Se actualiza image
 	}
 	return 0;
 }
@@ -93,7 +93,7 @@ int SpriteManager::getInstance(){
 // Similar a ImageManager
 void SpriteManager::rotate(double rotation){
 	this->rotation = rotation;
-	image = rotozoomSurface(notEscalate[actualInstance-1],rotation,escale,1);
+	image = rotozoomSurface(auxiliar[actualInstance-1],rotation,escale,1);
 }
 
 /*** rotateCentre ***/
@@ -108,7 +108,7 @@ void SpriteManager::rotateCentre(double rotation){
 // Similar a ImageManager
 void SpriteManager::escalate(double escale){
 	this->escale = escale;
-	image = rotozoomSurface(notEscalate[actualInstance-1],rotation,escale,1);
+	image = rotozoomSurface(auxiliar[actualInstance-1],rotation,escale,1);
 }
 
 /*** escalateCentre ***/

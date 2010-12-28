@@ -14,7 +14,7 @@ protected:
 	int nrows;										// Numero de columnas del sprite
 	int ncolumns;									// Numero de filas del sprite
 	int actualInstance;								// Guarda la imagen de la instancia que se va a mostrar
-	SDL_Surface **notEscalate;						// Puntero que apunta a un array de superficies que contiene las inastancias
+	SDL_Surface **auxiliar;						// Puntero que apunta a un array de superficies que contiene las inastancias
 
 public:
 	SpriteManager(int numberRows,int numberColumns);// Construtor

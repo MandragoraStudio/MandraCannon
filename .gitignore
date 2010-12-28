@@ -8,9 +8,9 @@ manifest.mf
 src.rar
 MandraCannon/Debug
 MandraCannon/ipch
-MandraCannon/MandraCannon.sln
-MandraCannon/MandraCannon.sdf
-MandraCannon/MandraCannon.suo
+MandraCannon.sln
+MandraCannon.sdf
+MandraCannon.suo
 MandraCannon/MandraCannon/MandraCannon.vcxproj.filters
 MandraCannon/MandraCannon/MandraCannon.vcxproj
 MandraCannon/MandraCannon/MandraCannon.vcxproj.user

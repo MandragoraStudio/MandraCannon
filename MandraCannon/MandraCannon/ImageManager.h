@@ -1,3 +1,9 @@
+/*******************************************************
+ImageManager.h
+
+Created by: Juan Manuel Amador Olivares
+********************************************************/
+
 #pragma once
 #include <SDL.h>
 

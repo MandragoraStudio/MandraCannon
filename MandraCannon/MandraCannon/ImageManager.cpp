@@ -1,6 +1,11 @@
+/*******************************************************
+ImageManager.cpp
+
+Created by: Juan Manuel Amador Olivares
+********************************************************/
+
 #include "StdAfx.h"
 #include "ImageManager.h"
-#include <stdio.h>
 #include <SDL.h>
 #include "SDL_image.h"
 #include "SDL_rotozoom.h"

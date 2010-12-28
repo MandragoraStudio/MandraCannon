@@ -13,7 +13,7 @@
 #include "SpriteManager.h"
 #include "SurfaceManager.h"
 
-<<<<<<< HEAD
+
 int main (int argc, char* argv[])
 {
 	atexit(SDL_Quit);
@@ -257,11 +257,3 @@ int main(int argc, char* argv[])
 <<<<<<< HEAD
 	return 1;
 }*/
-=======
-
-	SDL_FreeSurface(image);
-	SDL_FreeSurface(rot);
-	
-	return 0;
-}
->>>>>>> origin/master

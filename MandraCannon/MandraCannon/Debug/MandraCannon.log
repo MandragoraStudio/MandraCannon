@@ -1,5 +1,5 @@
-﻿Compilación iniciada a las 28/12/2010 21:18:17.
-     1>Proyecto "C:\Users\Cinta\Desktop\Proyectos\MandraCannon\MandraCannon\MandraCannon\MandraCannon.vcxproj" en el nodo 2 (build destinos).
+﻿Compilación iniciada a las 29/12/2010 15:04:30.
+     1>Proyecto "D:\Proyectos\MandraCanon\MandraCannon\MandraCannon\MandraCannon.vcxproj" en el nodo 2 (build destinos).
      1>InitializeBuildStatus:
          Se creará "Debug\MandraCannon.unsuccessfulbuild" porque se especificó "AlwaysCreate".
        ClCompile:
@@ -15,8 +15,8 @@
        FinalizeBuildStatus:
          Se eliminará el archivo "Debug\MandraCannon.unsuccessfulbuild".
          Aplicando tarea Touch a "Debug\MandraCannon.lastbuildstate".
-     1>Compilación del proyecto terminada "C:\Users\Cinta\Desktop\Proyectos\MandraCannon\MandraCannon\MandraCannon\MandraCannon.vcxproj" (build destinos).
+     1>Compilación del proyecto terminada "D:\Proyectos\MandraCanon\MandraCannon\MandraCannon\MandraCannon.vcxproj" (build destinos).
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:00.17
+Tiempo transcurrido 00:00:00.16

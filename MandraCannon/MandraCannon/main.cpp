@@ -19,21 +19,29 @@ int main (int argc, char* argv[])
 	atexit(SDL_Quit);
 	SDL_Init(SDL_INIT_VIDEO);
 
-	SSM main_screen(800, 600, 1280, 800);
-	main_screen.fillScreen(255,0,0);
+	SSM miPantalla(800,600, 1024, 768); // construimos la superficie
 
+	ImageManager miImagen1, miImagen2;
 
-	SpriteManager spri(2,3);
-	spri.loadImage("recursos/pruebas/verde.jpg");
-	spri.setInstance(4);
-	spri.setColorKey(255,255,255);
-	spri.setOpacity(100);
-	spri.rotate(34);
-	spri.setX(100);
-	spri.blitSurface(main_screen.getSurface());
+	miImagen1.loadImage("recursos/pruebas/boton.jpg");
+	miImagen2.loadImage("recursos/pruebas/rot.png");
 
+	miImagen1.rotate(45.0);
 
-	main_screen.flip();
+	for(int i=0; i<50;i++){
+		if(i == 20){
+			miImagen2.setY(miPantalla.getHEIGHT()/2 + i*10);
+			miImagen2.setOpacity(255-i*20);
+		}
+		else{
+			miImagen2.setX(miPantalla.getWIDTH()/2 + i*10);
+			miImagen2.setY(miPantalla.getHEIGHT()/2);
+		}		
+
+		miImagen1.blitSurface(miPantalla.getSurface()); // pegar imagen en la superficie
+		miImagen2.blitSurface(miPantalla.getSurface());
+		miPantalla.flip();
+	}
 
 	SDL_Event event;
 	int done = 0;
@@ -46,7 +54,7 @@ int main (int argc, char* argv[])
 					done = 1;
 				}
 			}else if (event.type == SDL_VIDEORESIZE){
-				main_screen.setResolution(event.resize.w,event.resize.h);
+				miPantalla.setResolution(event.resize.w,event.resize.h);
 			}else if (event.type == SDL_QUIT){
 				done = 1;
 			}

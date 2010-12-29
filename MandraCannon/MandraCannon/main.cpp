@@ -32,6 +32,9 @@ int main (int argc, char* argv[])
 	spri.setX(100);
 	spri.blitSurface(main_screen.getSurface());
 
+	SurfaceManager su(300,300);
+	su.fillSurface(0,0,0);
+	su.blitSurface(main_screen.getSurface());
 
 	main_screen.flip();
 

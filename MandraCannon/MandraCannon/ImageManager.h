@@ -42,8 +42,8 @@ public:
 	void escalateCentre(double escale);							// Escala la imagen (porcentaje de 0 a 1) respecto a su centro
 	int setColorKey(int R, int G, int B);						// Selecciona un color para la transparencia
 	void disabledColorKey();									// Desactiva el color seleccionado como transparente
-	int setOpacity(int opacity);								// Cambia la opacidad la imagen
+	int setOpacity(int opacity);								// Cambia la opacidad la imagen (entre 0 y 255)
 	void disabledOpacity();										// Desactiva la opacidad
 	void blitSurface(SDL_Surface *surface);						// Copia la imagen en otra superficie
-	void blitSurface(SDL_Surface *surface, SDL_Rect section);	// Copia la una parte definida imagen en otra superficie
+	void blitSurface(SDL_Surface *surface, SDL_Rect section);	// Copia una parte definida de la imagen en otra superficie
 };

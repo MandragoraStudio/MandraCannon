@@ -1,17 +1,31 @@
-﻿Compilación iniciada a las 28/12/2010 21:18:17.
+﻿Compilación iniciada a las 29/12/2010 12:30:58.
      1>Proyecto "C:\Users\Cinta\Desktop\Proyectos\MandraCannon\MandraCannon\MandraCannon\MandraCannon.vcxproj" en el nodo 2 (build destinos).
      1>InitializeBuildStatus:
          Se creará "Debug\MandraCannon.unsuccessfulbuild" porque se especificó "AlwaysCreate".
        ClCompile:
          Todas las salidas están actualizadas.
-         Todas las salidas están actualizadas.
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\SDL-1.2.14\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\MandraCannon.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+     1>c:\users\cinta\desktop\proyectos\mandracannon\mandracannon\mandracannon\main.cpp(43): warning C4101: 'keys' : variable local sin referencia
          Todas las salidas están actualizadas.
        ManifestResourceCompile:
          Todas las salidas están actualizadas.
        Link:
-         Todas las salidas están actualizadas.
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Cinta\Desktop\Proyectos\MandraCannon\MandraCannon\Debug\MandraCannon.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\SDL-1.2.14\lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib sdl.lib sdlmain.lib sdl_image.lib sdl_ttf.lib sdl_mixer.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\MandraCannon.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Cinta\Desktop\Proyectos\MandraCannon\MandraCannon\Debug\MandraCannon.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Cinta\Desktop\Proyectos\MandraCannon\MandraCannon\Debug\MandraCannon.lib" /MACHINE:X86 Debug\MandraCannon.exe.embed.manifest.res
+         Debug\ImageManager.obj
+         Debug\main.obj
+         Debug\librerias.obj
+         Debug\SDL_rotozoom.obj
+         Debug\SpriteManager.obj
+         Debug\SSM.obj
+         Debug\SurfaceManager.obj
+         Debug\TextManager.obj
        Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\MandraCannon.exe.embed.manifest" /manifest Debug\MandraCannon.exe.intermediate.manifest
          Todas las salidas están actualizadas.
+       LinkEmbedManifest:
+         Todas las salidas están actualizadas.
+         MandraCannon.vcxproj -> C:\Users\Cinta\Desktop\Proyectos\MandraCannon\MandraCannon\Debug\MandraCannon.exe
        FinalizeBuildStatus:
          Se eliminará el archivo "Debug\MandraCannon.unsuccessfulbuild".
          Aplicando tarea Touch a "Debug\MandraCannon.lastbuildstate".
@@ -19,4 +33,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:00.17
+Tiempo transcurrido 00:00:01.44

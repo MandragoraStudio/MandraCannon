@@ -1,4 +1,4 @@
-﻿Compilación iniciada a las 29/12/2010 12:30:58.
+﻿Compilación iniciada a las 29/12/2010 16:54:31.
      1>Proyecto "C:\Users\Cinta\Desktop\Proyectos\MandraCannon\MandraCannon\MandraCannon\MandraCannon.vcxproj" en el nodo 2 (build destinos).
      1>InitializeBuildStatus:
          Se creará "Debug\MandraCannon.unsuccessfulbuild" porque se especificó "AlwaysCreate".
@@ -6,7 +6,7 @@
          Todas las salidas están actualizadas.
          C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"C:\SDL-1.2.14\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\MandraCannon.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-     1>c:\users\cinta\desktop\proyectos\mandracannon\mandracannon\mandracannon\main.cpp(43): warning C4101: 'keys' : variable local sin referencia
+     1>c:\users\cinta\desktop\proyectos\mandracannon\mandracannon\mandracannon\main.cpp(48): warning C4101: 'keys' : variable local sin referencia
          Todas las salidas están actualizadas.
        ManifestResourceCompile:
          Todas las salidas están actualizadas.
@@ -33,4 +33,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:01.44
+Tiempo transcurrido 00:00:01.26

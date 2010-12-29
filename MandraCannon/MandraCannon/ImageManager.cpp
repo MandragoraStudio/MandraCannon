@@ -40,6 +40,7 @@ ImageManager::~ImageManager(void)
 // es decir, el numero de objetos creados
 int ImageManager::getNumberImages(){
 	return imageNumber;
+
 }
 
 /*** loadImage ***/

@@ -16,6 +16,7 @@ MandraCannon/MandraCannon.vcxproj.filters
 MandraCannon/MandraCannon.vcxproj.user
 MandraCannon.suo
 MandraCannon.opensdf
-a/MandraCannon.suo
-b/MandraCannon.suo
-MandraCannon/MandraCannon.suo
+*.vcproj.*.user 
+*.ncb 
+*.aps 
+*.suo

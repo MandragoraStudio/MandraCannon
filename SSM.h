@@ -1,19 +1,25 @@
 #pragma once
 #include <SDL.h>
 
+/*******************************************************
+SSM.h
+
+Created by: Juan Manuel Amador Olivares
+********************************************************/
+
 class SSM
 {
 protected:
 	bool fullScreen;						// ¿Pantalla completa?
-	int WIDTH;
-	int HEIGHT;
-	SDL_Surface *screen;	// Superficie de la ventana
-	SDL_Surface *notEscalate;	// Superficie del rectangulo "pintable"
-	SDL_Rect rect;		// Atributos de notEscalate, necesario para hacer el BlitSurface
-	int MAXWIDTH;		// Maximo ancho
-	int MAXHEIGHT;		// Maximo alto
+	int WIDTH;								// Ancho de la ventana
+	int HEIGHT;								// Alto de la ventana
+	SDL_Surface *screen;					// Superficie de la ventana
+	SDL_Surface *auxiliar;					// Superficie del rectangulo "pintable"
+	SDL_Rect rect;							// Atributos de notEscalate, necesario para hacer el BlitSurface
+	int MAXWIDTH;							// Maximo ancho
+	int MAXHEIGHT;							// Maximo alto
 public:
-	SSM(int WIDTH, int HEIGHT,int MAXWIDTH,int MAXHEIGHT);			// Constructor
+	SSM(int WIDTH, int HEIGHT,int MAXWIDTH,int MAXHEIGHT);		// Constructor
 	SDL_Surface *getSurface();	// Devuelve la superficie de la pantalla que servira para pintar
 	int getWIDTH();				// Devuelve el ancho (del rectangulo mostrado, no de la ventana)
 	int getHEIGHT();			// Devuelve el alto (del rectangulo mostrado, no de la ventana)

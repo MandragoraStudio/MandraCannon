@@ -8,8 +8,9 @@ manifest.mf
 src.rar
 Debug
 ipch
-MandraCannon.sdf
-MandraCannon.sln
+*.sdf
+*.sln
+*.suo
 MandraCannon/Debug
 MandraCannon/MandraCannon.vcxproj
 MandraCannon/MandraCannon.vcxproj.filters
@@ -18,7 +19,4 @@ MandraCannon.suo
 MandraCannon.opensdf
 *.vcproj.*.user 
 *.ncb 
-*.aps 
-*.suo
-C:\Users\Cinta\Desktop\Proyectos\MandraCannon\MandraCannon.suo
-MandraCannon.suo
+*.aps

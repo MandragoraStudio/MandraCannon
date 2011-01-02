@@ -16,6 +16,7 @@
 #include "Mouse.h"
 #include "ChunkManager.h"
 
+// parece que todo funciona
 
 int main (int argc, char* argv[])
 {

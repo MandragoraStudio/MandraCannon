@@ -43,23 +43,57 @@ SDL_Surface *SSM::getSurface(){
 	return auxiliar;
 }
 
+/*** getWIDTH ***/
+// Devuelve el ancho de la imagen
 int SSM::getWIDTH(){
 	return rect.w;
 }
 
+/*** getHEIGHT ***/
+// Devuelve el alto del rectangulo mostrable
 int SSM::getHEIGHT(){
 	return rect.h;
 }
 
+/*** getWIDTHScreen ***/
+// Devuelve el ancho de la ventana
+int SSM::getWIDTHScreen(){
+	return WIDTH;
+}
+
+/*** getHEIGHTScreen ***/
+// Devuelve el alto de la ventana
+int SSM::getHEIGHTScreen(){
+	return HEIGHT;
+}
+
+/*** getMAXWIDTH ***/
+// Devuelve el alto de la resolucion base, sobre la que se trabaja
+int SSM::getMAXWITH(){
+	return MAXWIDTH;
+}
+
+/*** getMAXHEIGHT ***/
+// Devuelve el alto de la resolucion base, sobre la que se trabaja
+int SSM::getMAXHEIGHT(){
+	return MAXHEIGHT;
+}
+
+/*** getFullScreen ***/
+// Este  metodo devuelve true si el modo de pantalla completa esta activado o false en caso contrario
 bool SSM::getFullScreen(){
 	return fullScreen;
 }
 
+/*** enabledFullScreen ***/
+// Este metodo activa el modo de pantalla completa
 void SSM::enabledFullScreen(){
 	screen = SDL_SetVideoMode(WIDTH,HEIGHT,32,SDL_HWSURFACE|SDL_RESIZABLE|SDL_FULLSCREEN);
 	fullScreen = true;
 }
 
+/*** disabledFullScreen ***/
+// Este metodo activa el modo de pantalla completa
 void SSM::disabledFullScreen(){
 	screen = SDL_SetVideoMode(WIDTH,HEIGHT,32,SDL_HWSURFACE|SDL_RESIZABLE);
 	fullScreen = false;
@@ -96,22 +130,6 @@ void SSM::setIcon(const char folder[]){
 void SSM::flip(){
 	SDL_BlitSurface(rotozoomSurface(auxiliar,0,getPercent(),1),NULL,screen,&rect);
 	SDL_Flip(screen);
-}
-
-int SSM::getMAXWITH(){
-	return MAXWIDTH;
-}
-
-int SSM::getMAXHEIGHT(){
-	return MAXHEIGHT;
-}
-
-int SSM::getWIDTHScreen(){
-	return WIDTH;
-}
-
-int SSM::getHEIGHTScreen(){
-	return HEIGHT;
 }
 
 double SSM::getPercent(){

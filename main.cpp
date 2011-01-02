@@ -39,6 +39,7 @@ int main (int argc, char* argv[])
 	SDL_ShowCursor(SDL_DISABLE);
 	SDL_ShowCursor(SDL_ENABLE);
 
+	// raton
 	Mouse raton;
 
 	SurfaceManager pro(175,75);

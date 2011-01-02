@@ -1,3 +1,9 @@
+/*******************************************************
+MusicManager.cpp
+
+Created by: Juan Manuel Amador Olivares
+********************************************************/
+
 #include "StdAfx.h"
 #include "MusicManager.h"
 

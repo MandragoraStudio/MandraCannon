@@ -19,8 +19,9 @@ protected:
 	static int textNumber;										// Cuenta el numero de imagenes creadas
 	SDL_Surface *image, *auxiliar;								// Superficie de la imagen final y de la imagen auxiliar
 	SDL_Rect imageRect;											// Estructura con los parametros x,y,w,h de la imagen original
+	SDL_Rect auxRect;											// Estructura auxiliar utilizada para pintar la imagen
 	double rotation;											// Rotacion de la imagen
-	double escale;												// Escalado de la imagen (de 0 a 1)
+	double scale;												// Escalado de la imagen (de 0 a 1)
 	int opacity;												// Opacidad de la imagen
 	int R,G,B;													// Color transparente de la imagen en RGB
 	TTF_Font *font;												// Puntero a estrutura que guarda la fuente de letra
@@ -49,12 +50,11 @@ public:
 	void setX(int x);											// Cambia la coordenada X
 	void setY(int y);											// Cambia la coordenada Y
 	double getRotation();										// Devuelve la rotacion
-	double getEscale();											// Devuelve el escalado (de 0 a 1)
+	double getScale();											// Devuelve el escalado (de 0 a 1)
 	void rotate(double rotation);								// Rota la imagen
-	void rotateCentre(double rotation);							// Rota la imagen respecto a su centro
-	void escalate(double escale);								// Escala la imagen (porcentaje de 0 a 1)
-	void escalateCentre(double escale);							// Escala la imagen (porcentaje de 0 a 1) respecto a su centro
+	void scalate(double scale);									// Escala la imagen (porcentaje de 0 a 1)
 	int setOpacity(int opacity);								// Cambia la opacidad la imagen (entre 0 y 255)
 	void disabledOpacity();										// Desactiva la opacidad
 	void blitSurface(SDL_Surface *surface);						// Copia la imagen en otra superficie
+	void blitSurface(SDL_Surface *surface, SDL_Rect section);	// Copia una parte definida de la imagen en otra superficie
 };

@@ -98,30 +98,27 @@ int SpriteManager::getNumberInstances(){
 // Similar a ImageManager
 void SpriteManager::rotate(double rotation){
 	this->rotation = rotation;
-	image = rotozoomSurface(auxiliar[actualInstance-1],rotation,escale,1);
+	image = rotozoomSurface(auxiliar[actualInstance-1],rotation,scale,1);
 }
 
-/*** rotateCentre ***/
+/*** scalate ***/
 // Similar a ImageManager
-void SpriteManager::rotateCentre(double rotation){
-	SpriteManager::rotate(rotation);
-	imageRect.x += (imageRect.w - image->w)/2;
-	imageRect.y += (imageRect.h - image->h)/2;
+void SpriteManager::scalate(double scale){
+	this->scale = scale;
+	image = rotozoomSurface(auxiliar[actualInstance-1],rotation,scale,1);
 }
 
-/*** escalate ***/
-// Similar a ImageManager
-void SpriteManager::escalate(double escale){
-	this->escale = escale;
-	image = rotozoomSurface(auxiliar[actualInstance-1],rotation,escale,1);
+// Estas funciones son redefinidas para que no puedan ser utilizadas
+int SpriteManager::createSurface(int WIDTH, int HEIGHT){
+	return -1;
 }
 
-/*** escalateCentre ***/
-// Similar a ImageManager
-void SpriteManager::escalateCentre(double escale){
-	SpriteManager::escalate(escale);
-	imageRect.x += (imageRect.w - image->w)/2;
-	imageRect.y += (imageRect.h - image->h)/2;
+int SpriteManager::fillSurface(int R,int G,int B){
+	return -1;
+}
+
+int SpriteManager::fillSurface(int R,int G,int B,SDL_Rect section){
+	return -1;
 }
 
 

@@ -16,16 +16,25 @@ int ImageManager::imageNumber = 0;		// Se inicia la variable de clase que guarda
 ImageManager::ImageManager(void)
 {
 	imageNumber++;		// Cada vez que se crea un objeto se incrementa una unidad el numero de imagenes
-	imageRect.x = 0;	// Se inicializa la estructura que contiene los atributos
-	imageRect.y = 0;	// de la imagen original. Los atributos x e y son comunes a la imagen original y la auxiliar
-	imageRect.w = 0;	// (realmente la imagen auxiliar no utiliza los atributos x e y, por lo que se usan
-	imageRect.h = 0;	// los mismo que los de la imagen original)
 	rotation = 0;		// La imagen no sufre ninguna rotacion al crear el objeto
-	escale = 1;			// La imagen no sufre ningun escalado al crear el objeto
+	scale = 1;			// La imagen no sufre ningun escalado al crear el objeto
 	opacity = -1;		// La opacidad esta desactivada al crear el objeto
 	R = -1;				// EL ColorKey esta desactivado al crear el objeto
 	G = -1;
 	B = -1;
+
+	// Las coordenadas se dan referenciando el centro de la imagen, por esto seran las mismas tanto para la imagen
+	// original y de la imagen rotada y escalada
+	imageRect.x = 0;	// Se inicializa la estructura que contiene los atributos
+	imageRect.y = 0;	// de la imagen original. Los atributos x e y son comunes a la imagen original y la auxiliar
+	imageRect.w = 0;	// (realmente la imagen auxiliar no utiliza los atributos x e y, por lo que se usan
+	imageRect.h = 0;	// los mismo que los de la imagen original)
+
+	// Estructura auxiliar
+	auxRect.x = 0;
+	auxRect.y = 0;
+	auxRect.w = 0;
+	auxRect.h = 0;
 }
 
 /*** Deconstructor ***/
@@ -40,7 +49,6 @@ ImageManager::~ImageManager(void)
 // es decir, el numero de objetos creados
 int ImageManager::getNumberImages(){
 	return imageNumber;
-
 }
 
 /*** loadImage ***/
@@ -65,6 +73,28 @@ int ImageManager::loadImage(const char path[]){
 		SDL_BlitSurface(image,NULL,auxiliar,&imageRect);
 		return 0;								// Si todo va bien devuelve 0
 	}
+}
+
+/*** createSurface ***/
+// Crea una superficie que pueda ser utilizada como imagen
+int ImageManager::createSurface(int WIDTH, int HEIGHT){
+	// Se crean las superficies por si no quisiera cargarse una imagen
+	// Se crea la superfie auxiliar
+	image = SDL_CreateRGBSurface(SDL_HWSURFACE|SDL_SRCCOLORKEY|SDL_SRCALPHA,
+	WIDTH,HEIGHT,32,0,0,0,0);
+	if (image == NULL){
+		return -1;
+	}
+	auxiliar = SDL_CreateRGBSurface(SDL_HWSURFACE|SDL_SRCCOLORKEY|SDL_SRCALPHA,
+	WIDTH,HEIGHT,32,0,0,0,0);
+	if (auxiliar == NULL){
+		return -1;
+	}
+
+	imageRect.w = WIDTH;
+	imageRect.h = HEIGHT;
+
+	return 0;								// Si todo va bien devuelve 0
 }
 
 /*** getSurface ***/
@@ -145,10 +175,10 @@ double ImageManager::getRotation(){
 	return rotation;
 }
 
-/*** getEscale ***/
+/*** getScale ***/
 // Devuelve el escalado (de 0 a 1)
-double ImageManager::getEscale(){
-	return escale;
+double ImageManager::getScale(){
+	return scale;
 }
 
 /*** rotate ***/
@@ -158,41 +188,19 @@ double ImageManager::getEscale(){
 // Tambien se guarda la rotacion
 void ImageManager::rotate(double rotation){
 	this->rotation = rotation;		
-	image = rotozoomSurface(auxiliar,rotation,escale,1);
+	image = rotozoomSurface(auxiliar,rotation,scale,1);
 }
 
-/*** rotateCentre ***/
-// Se rota la imagen con la funcion escalate y se calculan las nuevas coordenadas para que de la sensacion
-// de haber rotado la imagen respecto a su centro
-// Para ello se le resta al ancho y alto orginal el ancho y alto de la nueva imagen tras ser rotada
-// se divide entre dos y el resultado de esta operacion se le suma a las coordenadas x e y
-void ImageManager::rotateCentre(double rotation){
-	rotate(rotation);
-	imageRect.x += (imageRect.w - image->w)/2;
-	imageRect.y += (imageRect.h - image->h)/2;
-}
-
-/*** escalate ***/
+/*** scalate ***/
 // Utiliza la funcion rotozoomSurface para escalar la superficie auxiliar, que es similar a image pero no
 // ha sufrido ninguna rotacion ni escalado. La superficie devuelta por esta funcion es la imagen escalada
 // y esta superficie se guarda en la superficie image, que es la que se muestra.
 // Tambien se guarda el escalado
 // El escalado va de 0 a 1. 1 seria la imagen en sus estado original. Tambien puede sobre pasar 1 pero
 // se produciria un aumento de la imagen y se perderia calidad de imagen.
-void ImageManager::escalate(double escale){
-	this->escale = escale;
-	image = rotozoomSurface(auxiliar,rotation,escale,1);
-}
-
-/*** escalateCentre ***/
-// Se escala la imagen con la funcion escalate y se calculan las nuevas coordenadas para que de la sensacion
-// de haber escalado la imagen respecto a su centro
-// Para ello se le resta al ancho y alto orginal el ancho y alto de la nueva imagen tras ser escalada
-// se divide entre dos y el resultado de esta operacion se le suma a las coordenadas x e y
-void ImageManager::escalateCentre(double escale){
-	escalate(escale);
-	imageRect.x += (imageRect.w - image->w)/2;
-	imageRect.y += (imageRect.h - image->h)/2;
+void ImageManager::scalate(double scale){
+	this->scale = scale;
+	image = rotozoomSurface(auxiliar,rotation,scale,1);
 }
 
 /*** setColorKey ***/
@@ -242,7 +250,11 @@ void ImageManager::disabledOpacity(){
 void ImageManager::blitSurface(SDL_Surface *surface){
 	setOpacity(opacity);	// Se actualizan la opacidad y el ColorKey de la imagen por si ha habida alguna
 	setColorKey(R,G,B);		// rotacion o escalado, ya que lo desactivan
-	SDL_BlitSurface(image, NULL, surface, &getRect());	// Se copia toda la imagen
+	auxRect.w = image->w;
+	auxRect.h = image->h;
+	auxRect.x = imageRect.x - auxRect.w/2;
+	auxRect.y = imageRect.y - auxRect.h/2;
+	SDL_BlitSurface(image, NULL, surface, &auxRect);	// Se copia toda la imagen
 }
 
 /*** blitSurface ***/
@@ -250,6 +262,42 @@ void ImageManager::blitSurface(SDL_Surface *surface){
 void ImageManager::blitSurface(SDL_Surface *surface, SDL_Rect section){
 	setOpacity(opacity);	// Se actualizan la opacidad y el ColorKey de la imagen por si ha habida alguna
 	setColorKey(R,G,B);		// rotacion o escalado, ya que lo desactivan
-	SDL_BlitSurface(image, &section, surface, &getRect());	// Se copia una parte de la imagen
+	auxRect.w = image->w;
+	auxRect.h = image->h;
+	auxRect.x = imageRect.x - auxRect.w/2;
+	auxRect.y = imageRect.y - auxRect.h/2;
+	SDL_BlitSurface(image, &section, surface, &auxRect);	// Se copia una parte de la imagen
+}
+
+/*** fillSurface ***/
+// Pinta la superficie del color seleccionado
+int ImageManager::fillSurface(int R,int G,int B){
+	// Se comprueba si el color pasado como argumento esta permitido
+	if (R < 0 || G < 0 || B < 0 || R > 255 || G > 255 || B > 255){
+		return -1;
+	}else{
+		// Se pinta la superficie auxiliar
+		SDL_FillRect(auxiliar,NULL,SDL_MapRGB(auxiliar->format,R,G,B));
+
+		// Se le aplican la rotacion y escalado y se guarda en la superficie image
+		image = rotozoomSurface(auxiliar,rotation,scale,1);
+	}
+	return 0;
+}
+
+/*** fillSurface ***/
+// Pinta parte de la superficie del color seleccionado
+int ImageManager::fillSurface(int R,int G,int B,SDL_Rect section){
+	// Se comprueba si el color pasado como argumento esta permitido
+	if (R < 0 || G < 0 || B < 0 || R > 255 || G > 255 || B > 255){
+		return -1;
+	}else{
+		// Se pinta la superficie auxiliar
+		SDL_FillRect(auxiliar,&section,SDL_MapRGB(auxiliar->format,R,G,B));
+
+		// Se le aplican la rotacion y escalado y se guarda en la superficie image
+		image = rotozoomSurface(auxiliar,rotation,scale,1);
+	}
+	return 0;
 }
 

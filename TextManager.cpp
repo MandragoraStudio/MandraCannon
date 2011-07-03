@@ -21,7 +21,7 @@ TextManager::TextManager(void)
 	imageRect.w = 0;	// (realmente la imagen auxiliar no utiliza los atributos x e y, por lo que se usan
 	imageRect.h = 0;	// los mismo que los de la imagen original)
 	rotation = 0;		// La imagen no sufre ninguna rotacion al crear el objeto
-	escale = 1;			// La imagen no sufre ningun escalado al crear el objeto
+	scale = 1;			// La imagen no sufre ningun escalado al crear el objeto
 	opacity = -1;		// La opacidad esta desactivada al crear el objeto
 	R = -1;				// EL ColorKey esta desactivado al crear el objeto
 	G = -1;
@@ -187,8 +187,8 @@ double TextManager::getRotation(){
 
 /*** getEscale ***/
 // Devuelve el escalado (de 0 a 1)
-double TextManager::getEscale(){
-	return escale;
+double TextManager::getScale(){
+	return scale;
 }
 
 /*** rotate ***/
@@ -198,41 +198,19 @@ double TextManager::getEscale(){
 // Tambien se guarda la rotacion
 void TextManager::rotate(double rotation){
 	this->rotation = rotation;		
-	image = rotozoomSurface(auxiliar,rotation,escale,1);
+	image = rotozoomSurface(auxiliar,rotation,scale,1);
 }
 
-/*** rotateCentre ***/
-// Se rota la imagen con la funcion escalate y se calculan las nuevas coordenadas para que de la sensacion
-// de haber rotado la imagen respecto a su centro
-// Para ello se le resta al ancho y alto orginal el ancho y alto de la nueva imagen tras ser rotada
-// se divide entre dos y el resultado de esta operacion se le suma a las coordenadas x e y
-void TextManager::rotateCentre(double rotation){
-	rotate(rotation);
-	imageRect.x += (imageRect.w - image->w)/2;
-	imageRect.y += (imageRect.h - image->h)/2;
-}
-
-/*** escalate ***/
+/*** scalate ***/
 // Utiliza la funcion rotozoomSurface para escalar la superficie auxiliar, que es similar a image pero no
 // ha sufrido ninguna rotacion ni escalado. La superficie devuelta por esta funcion es la imagen escalada
 // y esta superficie se guarda en la superficie image, que es la que se muestra.
 // Tambien se guarda el escalado
 // El escalado va de 0 a 1. 1 seria la imagen en sus estado original. Tambien puede sobre pasar 1 pero
 // se produciria un aumento de la imagen y se perderia calidad de imagen.
-void TextManager::escalate(double escale){
-	this->escale = escale;
-	image = rotozoomSurface(auxiliar,rotation,escale,1);
-}
-
-/*** escalateCentre ***/
-// Se escala la imagen con la funcion escalate y se calculan las nuevas coordenadas para que de la sensacion
-// de haber escalado la imagen respecto a su centro
-// Para ello se le resta al ancho y alto orginal el ancho y alto de la nueva imagen tras ser escalada
-// se divide entre dos y el resultado de esta operacion se le suma a las coordenadas x e y
-void TextManager::escalateCentre(double escale){
-	escalate(escale);
-	imageRect.x += (imageRect.w - image->w)/2;
-	imageRect.y += (imageRect.h - image->h)/2;
+void TextManager::scalate(double scale){
+	this->scale = scale;
+	image = rotozoomSurface(auxiliar,rotation,scale,1);
 }
 
 /*** setOpacity ***/
@@ -258,5 +236,20 @@ void TextManager::disabledOpacity(){
 // Copia la imagen en la superficie pasada como argumento
 void TextManager::blitSurface(SDL_Surface *surface){
 	setOpacity(opacity);	// Se actualizan la opacidad y el ColorKey de la imagen por si ha habida alguna
-	SDL_BlitSurface(image, NULL, surface, &getRect());	// Se copia toda la imagen
+	auxRect.w = image->w;
+	auxRect.h = image->h;
+	auxRect.x = imageRect.x - auxRect.w/2;
+	auxRect.y = imageRect.y - auxRect.h/2;
+	SDL_BlitSurface(image, NULL, surface, &auxRect);	// Se copia toda la imagen
+}
+
+/*** blitSurface ***/
+// Copia la una parte de la imagen definida por el SDL_Rect pasado como argumento en la superficie superficie pasada como argumento
+void TextManager::blitSurface(SDL_Surface *surface, SDL_Rect section){
+	setOpacity(opacity);	// Se actualizan la opacidad y el ColorKey de la imagen por si ha habida alguna
+	auxRect.w = image->w;
+	auxRect.h = image->h;
+	auxRect.x = imageRect.x - auxRect.w/2;
+	auxRect.y = imageRect.y - auxRect.h/2;
+	SDL_BlitSurface(image, &section, surface, &auxRect);	// Se copia una parte de la imagen
 }

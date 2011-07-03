@@ -40,22 +40,17 @@ int Mouse::getY(){
 
 /*** over ***/
 // Este metodo comprueba si el raton se encuentra sobre el rectangulo pasado como argumento
-// Primero actualiza las coordenadas x e y del raton y comprueba si estas estan dentro del rectangulo
-bool Mouse::over(SDL_Rect rect){
+/*bool Mouse::over(SDL_Rect originalRect){
+	// Primero actualiza las coordenadas x e y del raton
 	x = getX();
 	y = getY();
-	if ( (x < (rect.x + rect.w) && x > rect.x) &&
-		(y < (rect.y + rect.h) && y > rect.y) ){
-			return true;
-	}else{
-		return false;
-	}
-}
+
+}*/
 
 /*** getMouseEvent ***/
 // Este metodo comprueba si el evento pasado por argumento es un evento de las teclas del raton
 // En el caso de serlo, rellena la estructura tipo MouseEvent y la devuelve
-MouseEvent Mouse::getMouseEvent(SDL_Event event){
+/*MouseEvent Mouse::getMouseEvent(SDL_Event event){
 	if (event.type == SDL_MOUSEBUTTONDOWN){	// Si el evento es de la pulsacion de una tecla del raton
 		buttonEvent.type = PRESSED;			// Se llena la estructura MouseEvent convenientemente
 		buttonEvent.x = event.motion.x;
@@ -93,7 +88,7 @@ MouseEvent Mouse::getMouseEvent(SDL_Event event){
 /*** overPressed ***/
 // Comprueba si el ultimo evento de pulsado del raton se ha producido en el rectangulo pasado como argumento
 // Primero actualiza las coordenadas x e y del raton y comprueba si estas estan dentro del rectangulo
-bool Mouse::overPressed(SDL_Rect rect, SDL_Event event){
+/*bool Mouse::overPressed(SDL_Rect rect, SDL_Event event){
 	getMouseEvent(event);	// Primero actualizo la estrutura que guarda el ultimo evento del raton
 	if (buttonEvent.type == PRESSED){								// Si se ha presinado una tecla del raton
 		if ( (buttonEvent.x < (rect.x + rect.w) && x > rect.x) &&	// Se comprueba si el evento se ha producido en el rectnagulo
@@ -105,12 +100,12 @@ bool Mouse::overPressed(SDL_Rect rect, SDL_Event event){
 	}else{
 		return false;
 	}
-}
+}*/
 
 /*** overReleased ***/
 // Este metodo comprueba si el raton se encuentra sobre el rectangulo pasado como argumento
 // Comprueba si el ultimo evento de soltado del raton se ha producido en el rectangulo pasado como argumento
-bool Mouse::overReleased(SDL_Rect rect, SDL_Event event){
+/*bool Mouse::overReleased(SDL_Rect rect, SDL_Event event){
 	getMouseEvent(event);	// Primero actualizo la estrutura que guarda el ultimo evento del raton
 	if (buttonEvent.type == RELEASED){								// Si se ha presinado una tecla del raton
 		if ( (buttonEvent.x < (rect.x + rect.w) && x > rect.x) &&	// Se comprueba si el evento se ha producido en el rectnagulo
@@ -122,7 +117,7 @@ bool Mouse::overReleased(SDL_Rect rect, SDL_Event event){
 	}else{
 		return false;
 	}
-}
+}*/
 
 /*** disableCursor ***/
 // Desactiva la visibilidad del raton

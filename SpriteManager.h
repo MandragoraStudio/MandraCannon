@@ -24,8 +24,11 @@ public:
 	int getInstance();								// Devuelve la instancia actual que sera mostrada del sprite
 	int getNumberInstances();						// Devuelve el numero de instancias del sprite
 	void rotate(double rotation);					// Rota las instancias del sprite
-	void rotateCentre(double rotation);				// Rota las instancias del sprite respecto a su centro
-	void escalate(double escale);					// Escala las instancias del sprite (porcentaje de 0 a 1)
-	void escalateCentre(double escale);				// Escala las instancias del sprite (porcentaje de 0 a 1) respecto a su centro
+	void scalate(double scale);						// Escala las instancias del sprite (porcentaje de 0 a 1)
+
+	// El uso de estas funciones no esta permitido en sprites, uanque si se puedan utilizar en ImageManager
+	int createSurface(int WIDTH, int HEIGHT);
+	int fillSurface(int R,int G,int B);
+	int fillSurface(int R,int G,int B,SDL_Rect section);
 };
 
